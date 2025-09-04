@@ -40,6 +40,7 @@ class SasaranIbuHamilForm
                     ->suffix('cm'),
                 TextInput::make('tekanan_darah')
                     ->required()
+                    ->label('Tekanan Darah (Sistole/Diastole)')
                     ->suffix('mmHg'),
             ]);
     }
