@@ -15,43 +15,44 @@ class SasaranBayisTable
         return $table
             ->columns([
                 TextColumn::make('nama')
+                    ->label('Nama')
                     ->searchable(),
                 TextColumn::make('tanggal_lahir')
+                    ->label('Tanggal Lahir')
                     ->date()
                     ->sortable(),
                 TextColumn::make('umur')
+                    ->label('Umur')
                     ->numeric()
                     ->sortable(),
                 TextColumn::make('tinggi_badan')
+                    ->label('Tinggi Badan')
                     ->numeric()
                     ->sortable(),
                 TextColumn::make('berat_badan')
-                    ->numeric()
-                    ->sortable(),
-                TextColumn::make('bbu')
+                    ->label('Berat Badan')
                     ->numeric()
                     ->sortable(),
                 TextColumn::make('status_bbu')
+                    ->label('BB/U')
                     ->searchable(),
-                TextColumn::make('tbu')
-                    ->numeric()
-                    ->sortable(),
                 TextColumn::make('status_tbu')
+                    ->label('TB/U')
                     ->searchable(),
-                TextColumn::make('bbtb')
-                    ->numeric()
-                    ->sortable(),
                 TextColumn::make('status_bbtb')
+                    ->label('BB/TB')
                     ->searchable(),
                 TextColumn::make('lingkar_kepala')
+                    ->label('Lingkar Kepala')
                     ->numeric()
                     ->sortable(),
                 TextColumn::make('LILA')
+                    ->label('LILA')
                     ->searchable(),
                 TextColumn::make('created_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
+                    ->label('Tanggal Dibuat')
+                    ->dateTime('d M Y')
+                    ->sortable(),
                 TextColumn::make('updated_at')
                     ->dateTime()
                     ->sortable()

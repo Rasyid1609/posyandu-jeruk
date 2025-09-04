@@ -39,6 +39,16 @@ class SasaranLansiaResource extends Resource
         ];
     }
 
+    public static function getPluralLabel(): string
+    {
+        return 'Sasaran Lansia';
+    }
+
+    public static function getModelLabel(): string
+    {
+        return 'Sasaran Lansia';
+    }
+
     public static function getPages(): array
     {
         return [

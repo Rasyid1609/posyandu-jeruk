@@ -15,14 +15,11 @@ return new class extends Migration
             $table->id();
             $table->string('nama');
             $table->date('tanggal_lahir')->nullable();
-            $table->integer('umur')->nullable();
+            $table->string('umur')->nullable();
             $table->integer('tinggi_badan');
             $table->decimal('berat_badan',  5, 2);
-            $table->decimal('bbu', 5, 2)->nullable();
             $table->string('status_bbu');
-            $table->decimal('tbu', 5, 2)->nullable();
             $table->string('status_tbu');
-            $table->decimal('bbtb', 5, 2)->nullable();
             $table->string('status_bbtb');
             $table->integer('lingkar_kepala')->nullable();
             $table->string('LILA')->nullable();

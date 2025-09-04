@@ -19,57 +19,30 @@ class SasaranBayiForm
                     ->label('Tanggal Lahir')
                     ->reactive()
                     ->afterStateUpdated(function (callable $set, $state) {
-                        if ($state) {
-                            $age = \Carbon\Carbon::parse($state)->age; // ✅ simple & aman
-                            $set('umur', $age);
+                       if ($state) {
+                            $dob = \Carbon\Carbon::parse($state);
+                            $now = \Carbon\Carbon::now();
+                            $diff = $dob->diff($now);
+
+                            // Format jadi "X tahun Y bulan"
+                            $umur = $diff->y . ' tahun ' . $diff->m . ' bulan';
+
+                            $set('umur', $umur);
                         } else {
                             $set('umur', null);
                         }
                     }),
                 TextInput::make('umur')
-                    ->numeric(),
+                    ->label('Umur')
+                    ->readOnly(),
                 TextInput::make('tinggi_badan')
                     ->required()
                     ->numeric()
-                    ->reactive()
-                    ->afterStateUpdated(function ($set, $get) {
-                        $umur = $get('umur');
-                        $tb = $get('tinggi_badan');
-                        $bb = $get('berat_badan');
-
-                        if ($tb && $umur) {
-                            $median = 67 + ($umur * 1);
-                            $sd = 3;
-                            $set('tbu', round(($tb - $median) / $sd, 2));
-                        }
-
-                        if ($bb && $tb) {
-                            $set('bbtb', round($bb / $tb, 2));
-                        }
-                    }),
+                    ->suffix('cm'),
                 TextInput::make('berat_badan')
                     ->required()
                     ->numeric()
-                    ->reactive()
-                    ->afterStateUpdated(function ($set, $get) {
-                        $umur = $get('umur');
-                        $bb = $get('berat_badan');
-                        $tb = $get('tinggi_badan');
-
-                        if ($bb && $umur) {
-                            $median = 7 + ($umur * 0.5);
-                            $sd = 1.2;
-                            $set('bbu', round(($bb - $median) / $sd, 2));
-                        }
-
-                        if ($bb && $tb) {
-                            $set('bbtb', round($bb / $tb, 2));
-                        }
-                    }),
-                TextInput::make('bbu')
-                    ->label('BB/U (Z-score)')
-                    ->numeric()
-                    ->readOnly(),
+                    ->suffix('kg'),
                 Select::make('status_bbu')
                     ->label('BB/U')
                     ->required()
@@ -77,10 +50,6 @@ class SasaranBayiForm
                         'N' => 'N',
                         'TN' => 'TN',
                     ]),
-                TextInput::make('tbu')
-                    ->label('TB/U (Z-score)')
-                    ->numeric()
-                    ->readOnly(),
                 Select::make('status_tbu')
                     ->label('BB/U')
                     ->required()
@@ -88,18 +57,6 @@ class SasaranBayiForm
                         'N' => 'N',
                         'TN' => 'TN',
                     ]),
-                TextInput::make('bbtb')
-                    ->label('BB/TB (Z-score)')
-                    ->numeric()
-                    ->readOnly()
-                    ->afterStateUpdated(function ($set, $get) {
-                        $bb = $get('berat_badan');
-                        $tb = $get('tinggi_badan');
-                        if ($bb && $tb) {
-                            $ratio = $bb / $tb; // contoh perhitungan sederhana
-                            $set('bbtb', round($ratio, 2));
-                        }
-                    }),
                 Select::make('status_bbtb')
                     ->label('BB/U')
                     ->required()

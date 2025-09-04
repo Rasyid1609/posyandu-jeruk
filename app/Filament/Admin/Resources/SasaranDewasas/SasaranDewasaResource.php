@@ -39,6 +39,16 @@ class SasaranDewasaResource extends Resource
         ];
     }
 
+    public static function getPluralLabel(): string
+    {
+        return 'Sasaran Dewasa';
+    }
+
+    public static function getModelLabel(): string
+    {
+        return 'Sasaran Dewasa';
+    }
+
     public static function getPages(): array
     {
         return [

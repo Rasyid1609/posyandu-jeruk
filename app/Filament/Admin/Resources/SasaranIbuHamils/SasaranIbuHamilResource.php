@@ -39,6 +39,17 @@ class SasaranIbuHamilResource extends Resource
         ];
     }
 
+
+    public static function getPluralLabel(): string
+    {
+        return 'Sasaran Ibu Hamil';
+    }
+
+    public static function getModelLabel(): string
+    {
+        return 'Sasaran Ibu Hamil';
+    }
+
     public static function getPages(): array
     {
         return [

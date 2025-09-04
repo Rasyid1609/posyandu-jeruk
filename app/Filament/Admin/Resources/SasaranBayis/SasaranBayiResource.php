@@ -39,6 +39,16 @@ class SasaranBayiResource extends Resource
         ];
     }
 
+    public static function getPluralLabel(): string
+    {
+        return 'Sasaran Bayi';
+    }
+
+    public static function getModelLabel(): string
+    {
+        return 'Sasaran Bayi';
+    }
+
     public static function getPages(): array
     {
         return [

@@ -63,23 +63,16 @@ class SasaranRemajaForm
                             ->numeric()
                             ->suffix('cm'),
                         TextInput::make('tekanan_darah')
-                            ->required()
                             ->numeric()
                             ->suffix('mmHg'),
                         TextInput::make('gula_darah')
-                            ->required()
                             ->numeric()
                             ->label('Gula Darah')
                             ->suffix('mg/dL'),
                         TextInput::make('hemogoblin')
-                            ->required()
                             ->numeric()
                             ->label('Hemogoblin')
                             ->suffix('g/dL'),
-                        TextInput::make('kolesterol')
-                            ->required()
-                            ->numeric()
-                            ->suffix('mg/dL'),
                     ]),
             ]);
     }

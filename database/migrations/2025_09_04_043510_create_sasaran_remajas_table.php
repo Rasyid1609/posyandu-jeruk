@@ -20,10 +20,9 @@ return new class extends Migration
             $table->decimal('berat_badan',  5, 2);
             $table->decimal('imt', 5, 2)->nullable();
             $table->integer('lingkar_perut')->nullable();
-            $table->string('tekanan_darah');
-            $table->decimal('gula_darah', 5, 2);
-            $table->decimal('kolesterol', 5, 2);
-            $table->decimal('hemogoblin', 5, 2);
+            $table->string('tekanan_darah')->nullable();
+            $table->decimal('gula_darah', 5, 2)->nullable();
+            $table->decimal('hemogoblin', 5, 2)->nullable();
             $table->timestamps();
         });
     }
