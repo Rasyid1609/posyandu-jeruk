@@ -46,12 +46,5 @@ class User extends Authenticatable
         ];
     }
 
-    public function canAccessPanel(Panel $panel): bool
-    {
-        // Untuk testing, semua user bisa login
-        return true;
 
-        // Kalau mau spesifik role:
-        // return $this->is_admin === true;
-    }
 }

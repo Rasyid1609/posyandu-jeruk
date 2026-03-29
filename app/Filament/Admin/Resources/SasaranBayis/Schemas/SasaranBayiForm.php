@@ -51,14 +51,14 @@ class SasaranBayiForm
                         'TN' => 'TN',
                     ]),
                 Select::make('status_tbu')
-                    ->label('BB/U')
+                    ->label('TB/U')
                     ->required()
                     ->options([
                         'N' => 'N',
                         'TN' => 'TN',
                     ]),
                 Select::make('status_bbtb')
-                    ->label('BB/U')
+                    ->label('BB/TB')
                     ->required()
                     ->options([
                         'Baik' => 'Baik',
